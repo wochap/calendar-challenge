@@ -30,6 +30,7 @@ const defaultForm = {
   city: '',
 };
 
+//TODO: create CalendarContainer
 function Calendar() {
   const formInstance = useRef();
   const [isEditing, setIsEditing] = useState(false);
@@ -131,10 +132,18 @@ function Calendar() {
         <Dialog.Body>
           <Form ref={formInstance} model={reminderForm} rules={rules} onSubmit={onSubmit}>
             <Form.Item label="Text" prop="text">
-              <Input value={reminderForm.text} onChange={onChange.bind(this, 'text')}></Input>
+              <Input
+                data-testid="formInputText"
+                value={reminderForm.text}
+                onChange={onChange.bind(this, 'text')}
+              ></Input>
             </Form.Item>
             <Form.Item label="City" prop="city">
-              <Input value={reminderForm.city} onChange={onChange.bind(this, 'city')}></Input>
+              <Input
+                data-testid="formInputCity"
+                value={reminderForm.city}
+                onChange={onChange.bind(this, 'city')}
+              ></Input>
             </Form.Item>
             <Form.Item label="Date" prop="date">
               <TimePicker value={reminderForm.date} placeholder="Pick a time" onChange={onChange.bind(this, 'date')} />
@@ -153,9 +162,10 @@ function Calendar() {
 
         <Dialog.Footer className="dialog-footer">
           <Button onClick={() => setIsDialogOpen(false)}>Close</Button>
-          <Button type="primary" onClick={onSubmit}>
-            {isEditing ? 'Edit' : 'Add'} reminder
-          </Button>
+          <button className="el-button el-button--primary" data-testid="formSubmitButton" onClick={onSubmit}>
+            <span>{isEditing ? 'Edit' : 'Add'} reminder</span>
+          </button>
+          {/* <Button data-testid="formSubmitButton" type="primary" onClick={onSubmit}></Button> */}
         </Dialog.Footer>
       </Dialog>
     </div>

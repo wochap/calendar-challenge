@@ -19,7 +19,7 @@ function CalendarCell(props) {
     <Container isWeekend={isWeekend} isDisabled={isDisabled}>
       <span>{date.slice(-2)}</span>
       {!isDisabled && (
-        <button onClick={() => onAddReminder(date)} type="button">
+        <button data-testid={`addReminderButton-${date.slice(-2)}`} onClick={() => onAddReminder(date)} type="button">
           Add reminder
         </button>
       )}

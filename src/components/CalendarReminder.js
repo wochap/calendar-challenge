@@ -48,10 +48,10 @@ const Container = styled.article`
 
 function CalendarReminder(props) {
   const { data, onClick } = props;
-  const { date, text, color, city, weatherForecast } = data;
+  const { date, text, color, city, weatherForecast, id } = data;
   return (
-    <Container color={color} onClick={() => onClick(props.data)}>
-      {moment(date).format('HH:mm')} - {text}
+    <Container data-testid={`reminder-${id}`} color={color} onClick={() => onClick(props.data)}>
+      {moment(date).format('HH:mm')} - <span>{text}</span>
       <br />
       City: {city}
       <br />
