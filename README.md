@@ -10,6 +10,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 weather forecast (ex. Rain) for the date of the calendar reminder based on the city.
 [X] Unit test the functionality: Ability to add a new "reminder" (max 30 chars) for a user entered day and time. Also, include a city.
 
+## Stack
+
+* [Element UI](https://elemefe.github.io/element-react/index#/en-US/quick-start)
+* [MomentJS](https://momentjs.com/)
+* React
+* [EasyPeasy](https://easy-peasy.now.sh/)
+* [Emotion](https://emotion.sh/docs/introduction)
+* Jest
+
 ## Available Scripts
 
 In the project directory, you can run:
