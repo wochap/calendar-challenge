@@ -1,21 +1,9 @@
 import { action, createStore, thunk, computed } from 'easy-peasy';
 // import memoize from 'lodash.memoize';
 import moment from 'moment';
+import weatherService from './weatherService';
 
-//TODO: get API_KEY from env
-const API_KEY = '8afe1ac8b23eacb53951edf9fbb171e2';
-
-/**
- * fetchDayWeatherForecast
- * @param dateISO {string} - in format YYYY-MM-DD
- * @param city {string}
- */
-const fetchDayWeatherForecast = (dateISO, city) => {
-  //TODO: get weather using date and city
-  return fetch(`//api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`).then(res => res.json());
-};
-
-const store = createStore({
+export const calendarModel = {
   weekDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
   currentMonth: moment().format('MM'),
   currentMonthDates: computed(state => {
@@ -71,15 +59,20 @@ const store = createStore({
   setReminder: action((state, payload) => {
     state.remindersById[payload.id] = payload;
   }),
-  saveReminder: thunk(async (actions, payload) => {
+  saveReminder: thunk(async (actions, payload, { injections }) => {
+    const { weatherService } = injections;
     actions.setReminder(payload);
     //TODO: pass date in YYYY-MM-DD format
-    const weatherForecast = await fetchDayWeatherForecast(payload.date, payload.city);
+    const weatherForecast = await weatherService.getWeather(payload.date, payload.city);
     actions.setReminder({
       ...payload,
       weatherForecast: weatherForecast?.weather?.[0]?.description ?? '-',
     });
   }),
+};
+
+const store = createStore(calendarModel, {
+  injections: { weatherService },
 });
 
 export default store;
