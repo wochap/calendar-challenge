@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+**[DEMO](https://hungry-leakey-b62060.netlify.app/)**
+
 ## Features
 
 ### Mandatory Features 
