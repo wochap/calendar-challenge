@@ -1,0 +1,14 @@
+{
+    "root": true,
+    "extends": [
+        "react-app",
+        "plugin:prettier/recommended"
+    ],
+    "rules": {
+        // "no-trailing-spaces": ["error"],
+        // "semi": ["error", "always"],
+        // "quotes": ["error", "double"],
+        // "indent": ["error", 4],
+        // "object-curly-spacing": ["error", "always"]
+    }
+}
