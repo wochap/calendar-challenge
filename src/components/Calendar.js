@@ -157,7 +157,6 @@ function Calendar() {
               ></ColorPicker>
             </Form.Item>
           </Form>
-          <pre>{JSON.stringify(reminderForm, null, 4)}</pre>
         </Dialog.Body>
 
         <Dialog.Footer className="dialog-footer">
