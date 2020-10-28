@@ -2511,7 +2511,7 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-emotion@^10.0.27:
+babel-plugin-emotion@^10.0.27, babel-plugin-emotion@^10.0.33:
   version "10.0.33"
   resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-10.0.33.tgz#ce1155dcd1783bbb9286051efee53f4e2be63e03"
   integrity sha512-bxZbTTGz0AJQDHm8k6Rf3RQJ8tX2scsfsRyKVgAbiUPUNIRtlK+7JxP+TAd1kRLABFxe0CFm2VdK4ePkoA9FxQ==
@@ -9281,6 +9281,11 @@ react-app-polyfill@^2.0.0:
     raf "^3.4.1"
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
+
+react-app-rewire-emotion@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-app-rewire-emotion/-/react-app-rewire-emotion-4.0.0.tgz#7b4e6108fca0955a9d40f0613eca380e1512bd4c"
+  integrity sha1-e05hCPyglVqdQPBhPso4DhUSvUw=
 
 react-click-outside@^3.0.1:
   version "3.0.1"

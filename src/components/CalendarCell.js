@@ -1,8 +1,19 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { primaryColor, borderColor } from '../styles';
 import CalendarReminder from './CalendarReminder';
 
+const Button = styled.button`
+  appearance: none;
+  border: 0;
+  background-color: ${primaryColor};
+  color: #ffffff;
+  font-weight: 600;
+  margin-left: 5px;
+  padding: 5px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+`;
 const Container = styled.section`
   background-color: ${props => (props.isWeekend ? '#F1F1F1' : '#ffffff')};
   border-bottom: 1px solid ${borderColor};
@@ -11,6 +22,10 @@ const Container = styled.section`
   font-weight: 600;
   overflow: auto;
   padding: 0.5rem;
+
+  &:hover ${Button} {
+    opacity: 1;
+  }
 `;
 
 function CalendarCell(props) {
@@ -19,9 +34,9 @@ function CalendarCell(props) {
     <Container isWeekend={isWeekend} isDisabled={isDisabled}>
       <span>{date.slice(-2)}</span>
       {!isDisabled && (
-        <button data-testid={`addReminderButton-${date.slice(-2)}`} onClick={() => onAddReminder(date)} type="button">
+        <Button data-testid={`addReminderButton-${date.slice(-2)}`} onClick={() => onAddReminder(date)} type="button">
           Add reminder
-        </button>
+        </Button>
       )}
       {reminders &&
         reminders.map(reminder => (
